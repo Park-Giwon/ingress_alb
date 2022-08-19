@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: pod-web
-        image: nginx
+        image: rldnjsdlsi/ontheair:v8.0
 ---
 apiVersion: v1
 kind: Service
@@ -45,7 +45,7 @@ spec:
     spec:
       containers:
       - name: pod-guest
-        image: gcr.io/google-samples/kubernetes-bootcamp:v1
+        image: rldnjsdlsi/ontheair2:v20.0
         ports:
         - containerPort: 8080
 ---
@@ -57,7 +57,7 @@ spec:
   ports:
     - name: guest-port
       port: 9002
-      targetPort: 8080
+      targetPort: 80
   selector:
     app: guestsrv
   type: NodePort
@@ -78,7 +78,7 @@ spec:
     spec:
       containers:
       - name: pod-admin
-        image: k8s.gcr.io/echoserver:1.5
+        image: rldnjsdlsi/ontheair3:v2.0
         ports:
         - containerPort: 8080
 ---
@@ -90,7 +90,7 @@ spec:
   ports:
     - name: admin-port
       port: 9003
-      targetPort: 8080
+      targetPort: 80
   selector:
     app: adminsrv
   type: NodePort
